@@ -67,5 +67,3 @@ app.delete('/users/:id', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}...`)
 })
-
-// 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
