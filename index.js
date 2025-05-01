@@ -10,7 +10,6 @@ let userData = [];
 let userId = 1;
 
 
-
 // Add a user  to the userData array.
 app.post('/users', (req, res) => {
     const { name, email } = req.body;
@@ -27,7 +26,7 @@ app.post('/users', (req, res) => {
 
 
 // Get all users from the userData array.
-app.get('/users', (req, res) => {
+app.get('/users', (_req, res) => {
     return res.status(200).send(userData);
 })
 
@@ -60,7 +59,7 @@ app.delete('/users/:id', (req, res) => {
         return res.status(404).send({ message: 'User not found' });
     }
     userData.splice(userIndex, 1);
-    res.status(200).send({ message: 'User deleted successfully' });
+    res.status(200).send({ message: `User deleted successfully ${req.params.id}` });
 });
 
 
